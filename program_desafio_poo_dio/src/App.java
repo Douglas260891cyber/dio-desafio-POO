@@ -8,8 +8,11 @@ public class App {
         System.out.println();
         System.out.println(curso2.toString());
 
-        Mentoria mentoria = new Mentoria("Mentoria Java", "Mentoria em Java", LocalDate.now());
+        Mentoria mentoria = new Mentoria(LocalDate.now(), "Mentoria Java", "Descricao da mentoria em Java");
         System.out.println();
         System.out.println(mentoria.toString());
+
+        Conteudo conteudo1 = new Mentoria();
+        Conteudo conteudo2 = new Curso();
     }
 }
