@@ -6,7 +6,7 @@ public class Curso extends Conteudo {
     }
 
     public Curso(String titulo, String descricao, Double cargaHoraria) {
-    super(titulo, descricao);
+        super(titulo, descricao);
         this.cargaHoraria = cargaHoraria;
     }
 

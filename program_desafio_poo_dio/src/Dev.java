@@ -1,5 +1,6 @@
 import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Dev extends Conteudo {
@@ -33,15 +34,22 @@ public class Dev extends Conteudo {
     }
 
     public void inscreverBootcamp(Bootcamp bootcamp) {
-
+        this.conteudosInscritos.addAll(bootcamp.getConteudos());
+        bootcamp.getDevsInscritos().add(this);
     }
 
     public void progredir() {
-
+        Optional<Conteudo> conteudos = this.conteudosConcluidos.stream().findFirst();
+        if (conteudos.isPresent()) {
+            this.conteudosConcluidos.add(conteudos.get());
+            this.conteudosInscritos.remove(conteudos.get());
+        } else {
+            System.out.println("Você não está matriculado em nenhum conteúdo!");
+        }
     }
 
-    public void calcularTotalXp() {
-
+    public Double calcularTotalXp() {
+        return this.conteudosConcluidos.stream().mapToDouble(conteudo -> conteudo.calcularXp()).sum();
     }
 
     @Override
